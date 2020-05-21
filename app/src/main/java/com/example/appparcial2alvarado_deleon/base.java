@@ -12,8 +12,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class base extends AppCompatActivity {
-    ArrayList<User> users;
-    User current_user;
+    ArrayList<User> users;  //// Lista de usuarios registrados
+    User current_user; //// Usuario logueado actualmente
 
 
     public void Load_or_inicializate_users(){
@@ -27,7 +27,7 @@ public class base extends AppCompatActivity {
         }
     }
 
-    private void saveCurrent_user(User usuario){
+    private void saveCurrentUser(User usuario){
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharepreferences.edit();
         Gson gson = new Gson();
@@ -48,7 +48,7 @@ public class base extends AppCompatActivity {
         loadData();
     }
 
-    public boolean loadData(){
+    public boolean loadCurrentUser(){
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharepreferences.getString("current_user", null);
@@ -63,6 +63,29 @@ public class base extends AppCompatActivity {
         Log.e("USUARIOS", "==============================================USUARIO ACTUAL====================================================");
         Log.e("USUARIO", "| USUARIO: " + current_user  + " | NOMBRE: " + current_user.nombre + "| PASS: " + current_user.pass + "| ROL: " +  current_user.rol);
         Log.e("USUARIOS", "==============================================USUARIO ACTUAL====================================================");
+        return true;
+    }
+
+    public boolean loadData(){
+        SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharepreferences.getString("usuarios", null);
+        Type type = new TypeToken<ArrayList<User>>(){}.getType();
+        users = gson.fromJson(json, type);
+
+        if(users == null){
+            users = new ArrayList<>();
+            Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
+            Log.e("USUARIOS", "=========================================NO HAY USUARIOS REGISTRADOS===============================================");
+            Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
+            return false;
+        }
+        Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
+        Log.e("USUARIOS", "CANTIDAD DE USUARIOS: " + String.valueOf(users.size()));
+        for (int counter = 0; counter < users.size(); counter++) {
+            Log.e("USUARIOS", "| NOMBRE: " + users.get(counter).nombre + "| ROL: " + users.get(counter).rol);
+        }
+        Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
         return true;
     }
 }
