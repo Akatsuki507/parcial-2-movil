@@ -10,5 +10,8 @@ public class login extends base {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        // Metodos heredados de clase Base
+        Load_or_inicializate_users();
+        LoadAllData();
     }
 }

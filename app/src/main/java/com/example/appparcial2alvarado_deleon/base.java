@@ -11,12 +11,20 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+// Clase base para heredar todos los metodos
 public class base extends AppCompatActivity {
     ArrayList<User> users;  //// Lista de usuarios registrados
     User current_user; //// Usuario logueado actualmente
 
+    // Cargar todos los datos
+    public void LoadAllData(){
+        loadData();
+        loadCurrentUser();
+    }
+
 
     public void Load_or_inicializate_users(){
+        // Quema los usuarios si no existen
         if(loadData()){
             // Quemar datos de usuarios
             User estudiante = new User("8-888-888","Shantal De Leon", "123", "estudiante");
@@ -27,6 +35,7 @@ public class base extends AppCompatActivity {
         }
     }
 
+    // Guardar usuario actual desdpues del login
     private void saveCurrentUser(User usuario){
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharepreferences.edit();
@@ -37,7 +46,7 @@ public class base extends AppCompatActivity {
         loadData();
     }
 
-
+    // Guardar Usuarios
     private void saveData() {
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharepreferences.edit();
@@ -48,6 +57,7 @@ public class base extends AppCompatActivity {
         loadData();
     }
 
+    // Cargar usuario actual
     public boolean loadCurrentUser(){
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -66,6 +76,7 @@ public class base extends AppCompatActivity {
         return true;
     }
 
+    // Cargar todos los usuarios
     public boolean loadData(){
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         Gson gson = new Gson();
