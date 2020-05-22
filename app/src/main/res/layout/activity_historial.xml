@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="#000"
         android:text="Su Historial de Nota es "
         android:textAlignment="center"
@@ -51,12 +51,11 @@
         android:id="@+id/Seleccionado"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10px"
-        android:layout_marginBottom="10px"
-        android:autoText="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#7F8297"
-        android:paddingTop="10px"
-        android:paddingBottom="10px" />
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
 
     <EditText
         android:id="@+id/Calificacion"

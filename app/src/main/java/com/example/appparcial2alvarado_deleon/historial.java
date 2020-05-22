@@ -82,7 +82,7 @@ public class historial extends base {
             @Override
             public void onClick(View v) {
 
-                if( !(Calificacion.getText().charAt(0) == 0) && !(selected.getText().toString() != null)){
+                if( !(Calificacion.getText().toString() != null) || !(selected.getText().toString() != null)){
                     char char_calificacion = Calificacion.getText().charAt(0);
 
                     String materia = selected.getText().toString();
