@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.OutputStreamWriter;
@@ -17,6 +18,7 @@ public class historial extends base {
 
     private ListView NotasList;
     private ArrayList<String> names;
+    private TextView selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +30,19 @@ public class historial extends base {
 
 
         NotasList = (ListView) findViewById(R.id.NotasList);
+        selected = (TextView) findViewById(R.id.Seleccionado);
 
         names = new ArrayList<String>();
-        names.add("Calculo 1 : " + notas.calculo1);
-        names.add("Calculo 2 : " + notas.calculo2);
-        names.add("Programacion 1 : " + notas.programacion1);
-        names.add("Programacion 2 : " + notas.programacion2);
-        names.add("Bases de datos 1 : " + notas.bases_de_datos1);
-        names.add("Bases de datos 2 : " + notas.bases_de_datos2);
-        names.add("Ecuaciones diferenciales : " + notas.ecuaciones_diferenciales);
-        names.add("Matematicas superiores : " + notas.matematicas_superiores);
-        names.add("Ingenieria de requisitos : " + notas.ingenieria_de_requisitos);
-        names.add("Ingenieria web : " + notas.ingenieria_web);
+        names.add("Calculo 1: " + notas.calculo1);
+        names.add("Calculo 2: " + notas.calculo2);
+        names.add("Programacion 1: " + notas.programacion1);
+        names.add("Programacion 2: " + notas.programacion2);
+        names.add("Bases de datos 1: " + notas.bases_de_datos1);
+        names.add("Bases de datos 2: " + notas.bases_de_datos2);
+        names.add("Ecuaciones diferenciales: " + notas.ecuaciones_diferenciales);
+        names.add("Matematicas superiores: " + notas.matematicas_superiores);
+        names.add("Ingenieria de requisitos: " + notas.ingenieria_de_requisitos);
+        names.add("Ingenieria web: " + notas.ingenieria_web);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
         NotasList.setAdapter(adapter);
@@ -47,6 +50,8 @@ public class historial extends base {
         NotasList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] parts = names.get(position).split(":");
+                selected.setText(parts[0]);
                 Toast.makeText(historial.this, "Has pulsado: "+ names.get(position), Toast.LENGTH_LONG).show();
             }
         });

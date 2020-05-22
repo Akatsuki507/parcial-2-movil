@@ -9,6 +9,18 @@
     <ListView
         android:id="@+id/NotasList"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="275dp"
         android:background="#AE9393" />
+
+    <TextView
+        android:id="@+id/Seleccionado"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:autoText="true"
+        android:background="#7F8297"
+        android:paddingTop="10px"
+        android:paddingBottom="10px" />
+
 </LinearLayout>
