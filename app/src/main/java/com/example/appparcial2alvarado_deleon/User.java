@@ -14,4 +14,8 @@ public class User {
         this.pass = pass;
         this.rol = rol;
     }
+
+    public static Double getText() {
+        return null;
+    }
 }

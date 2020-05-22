@@ -16,6 +16,7 @@ public class base extends AppCompatActivity {
     ArrayList<User> users;  //// Lista de usuarios registrados
     User current_user; //// Usuario logueado actualmente
 
+
     // Cargar todos los datos
     public void LoadAllData(){
         loadData();
@@ -36,7 +37,7 @@ public class base extends AppCompatActivity {
     }
 
     // Guardar usuario actual desdpues del login
-    private void saveCurrentUser(User usuario){
+    void saveCurrentUser(User usuario){
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharepreferences.edit();
         Gson gson = new Gson();
