@@ -28,47 +28,39 @@ public class Nota {
         this.first = false;
     }
 
-    public void setCalculo1(char calculo1) {
-        this.calculo1 = calculo1;
-    }
-
-    public void setCalculo2(char calculo2) {
-        this.calculo2 = calculo2;
-    }
-
-    public void setProgramacion1(char programacion1) {
-        this.programacion1 = programacion1;
-    }
-
-    public void setProgramacion2(char programacion2) {
-        this.programacion2 = programacion2;
-    }
-
-    public void setBases_de_datos1(char bases_de_datos1) {
-        this.bases_de_datos1 = bases_de_datos1;
-    }
-
-    public void setBases_de_datos2(char bases_de_datos2) {
-        this.bases_de_datos2 = bases_de_datos2;
-    }
-
-    public void setEcuaciones_diferenciales(char ecuaciones_diferenciales) {
-        this.ecuaciones_diferenciales = ecuaciones_diferenciales;
-    }
-
-    public void setMatematicas_superiores(char matematicas_superiores) {
-        this.matematicas_superiores = matematicas_superiores;
-    }
-
-    public void setIngenieria_de_requisitos(char ingenieria_de_requisitos) {
-        this.ingenieria_de_requisitos = ingenieria_de_requisitos;
-    }
-
-    public void setIngenieria_web(char ingenieria_web) {
-        this.ingenieria_web = ingenieria_web;
-    }
-
-    public void setFirst(boolean first) {
-        this.first = first;
+    public boolean updateNotas(String materia, char calificacion){
+        boolean resultado = false;
+        if (materia.equals("calculo1")){
+            this.calculo1 = calificacion;
+            return true;
+        }else if(materia.equals("calculo2")){
+            this.calculo2 = calificacion;
+            return true;
+        }else if(materia.equals("programacion1")){
+            this.programacion1 = calificacion;
+            return true;
+        }else if(materia.equals("programacion2")){
+            this.programacion2 = calificacion;
+            return true;
+        }else if(materia.equals("bases_de_datos1")){
+            this.bases_de_datos1 = calificacion;
+            return true;
+        }else if(materia.equals("bases_de_datos2")){
+            this.bases_de_datos2 = calificacion;
+            return true;
+        }else if(materia.equals("")){
+            this.calculo1 = calificacion;
+            return true;
+        }else if(materia.equals("")){
+            this.calculo1 = calificacion;
+            return true;
+        }else if(materia.equals("")){
+            this.calculo1 = calificacion;
+            return true;
+        }else if(materia.equals("")){
+            this.calculo1 = calificacion;
+            return true;
+        }
+        return resultado;
     }
 }

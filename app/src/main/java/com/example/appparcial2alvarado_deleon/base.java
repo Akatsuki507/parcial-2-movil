@@ -2,12 +2,16 @@ package com.example.appparcial2alvarado_deleon;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -15,12 +19,38 @@ import java.util.ArrayList;
 public class base extends AppCompatActivity {
     ArrayList<User> users;  //// Lista de usuarios registrados
     User current_user; //// Usuario logueado actualmente
+    Nota notas;
 
     // Cargar todos los datos
     public void LoadAllData(){
         loadData();
         loadCurrentUser();
     }
+
+    public void Load_or_inicializate_notas(){
+        if(loadData()){
+            inicializar_notas();
+        }
+    }
+
+    public boolean inicializar_notas(){
+        try {
+            notas = new Nota();
+            Gson gson = new Gson();
+            String json = gson.toJson(notas);
+            OutputStreamWriter fn = new OutputStreamWriter(openFileOutput("user.txt", Context.MODE_PRIVATE));
+            fn.write(json);
+            fn.close();
+            Toast.makeText(getApplicationContext(),"Usted se ha registrado de un modo exitoso UwU", Toast.LENGTH_SHORT).show();
+            return true;
+        } catch (Exception e){
+            Toast.makeText(getApplicationContext(),"Error en la data ingresada"+e.getMessage().toString(),Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+
+    }
+
 
 
     public void Load_or_inicializate_users(){
