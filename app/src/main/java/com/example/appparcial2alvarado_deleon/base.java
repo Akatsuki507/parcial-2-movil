@@ -96,8 +96,7 @@ public class base extends AppCompatActivity {
         current_user = gson.fromJson(json, type);
 
 
-        if(users == null){
-            users = new ArrayList<>();
+        if(current_user == null){
             return false;
         }
         Log.e("USUARIOS", "==============================================USUARIO ACTUAL====================================================");

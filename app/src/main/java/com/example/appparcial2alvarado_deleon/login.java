@@ -37,7 +37,7 @@ public class login extends base {
         identity= findViewById(R.id.txtCedula);
         pass= findViewById(R.id.txtContrasena);
 
-        Btn = (Button)findViewById(R.id.btnValidar);
+        Btn = (Button)findViewById(R.id.btn);
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,8 +45,8 @@ public class login extends base {
                 String PASS = pass.getText().toString();
 
 
+            }
+        });
+
     }
-            });
-
-
-}}
+}
