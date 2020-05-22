@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="20dip">
+    android:padding="5dp"
+    android:background="#fff"
+    >
+
+
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="15dp"
         android:text="Universidad Tecnologia de Panama"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textColor="#0C0E09"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+
+        />
 
     <TextView
         android:id="@+id/txtSistemas"
@@ -24,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:textSize="20dp"
-        android:textStyle="bold"
+        android:textColor="#000"
         android:text="Facultad de Sistemas"
         android:textAlignment="center"
         android:layout_gravity="center"
@@ -36,16 +45,59 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Nuevo Sistema de Matricula"
+        android:textColor="#000"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:textSize="20dp"
-        android:textStyle="bold"
+
         />
+
+
+    <LinearLayout
+        android:layout_width="411dp"
+        android:layout_height="178dp"
+        android:orientation="horizontal"
+
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="90dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="10pt"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70pt"
+            app:srcCompat="@drawable/logo_utp_1_300" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="90dp"
+            android:layout_height="132dp"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="2dp"
+            app:srcCompat="@drawable/logo"
+
+            />
+
+    </LinearLayout>
+
     <EditText
+
         android:id="@+id/Calificacion"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:hint="Usuario"
+        android:hint="Cédula"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/input"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#6600CC"
+
+
         />
 
     <EditText
@@ -54,19 +106,43 @@
         android:layout_width="fill_parent"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:layout_marginTop="15dip"
-        android:layout_marginBottom="30dip" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/input"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#6600CC"
+        />
 
 
     <Button
         android:id="@+id/btn"
+
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Ingresar"
-        android:onClick="Ingresar"
         android:layout_gravity="center_horizontal"
-        android:paddingLeft="15dip"
-        android:paddingRight="15dip" />
+        android:onClick="Ingresar"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#ffff"
+        android:background="@drawable/boton_login"
+        android:text="Ingresar"
+        android:textStyle="bold"
+        />
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.widget.ArrayAdapter;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +23,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class historial extends base {
+
 
     private ListView NotasList;
     private ArrayList<String> names;
@@ -33,6 +38,14 @@ public class historial extends base {
         Load_or_inicializate_users();
         Load_or_inicializate_notas();
         LoadAllData();
+
+        TextView tvnombre = (TextView)findViewById(R.id.Nombre);
+        tvnombre.setText( "Bienvenido  " + current_user.nombre);
+        TextView tvusuario = (TextView)findViewById(R.id.Prueba);
+        tvusuario.setText("Usuario en Linea: " + current_user.nombre + " " + current_user.cedula);
+
+
+
 
 
         NotasList = (ListView) findViewById(R.id.NotasList);
@@ -90,6 +103,7 @@ public class historial extends base {
 
             }
         });
+
 
     }
 
