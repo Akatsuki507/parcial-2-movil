@@ -1,9 +1,5 @@
 package com.example.appparcial2alvarado_deleon;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.widget.ArrayAdapter;
@@ -11,7 +7,6 @@ import android.widget.ArrayAdapter;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,7 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class historial extends base {
@@ -29,7 +23,11 @@ public class historial extends base {
     private ArrayList<String> names;
     private TextView selected;
     private EditText Calificacion;
+    private EditText editName;
+    private EditText editPass;
     private Button buttonUpdate;
+    private Button UpdateName;
+    private Button UpdatePass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +50,11 @@ public class historial extends base {
         selected = (TextView) findViewById(R.id.Seleccionado);
         Calificacion = (EditText) findViewById(R.id.Calificacion);
         buttonUpdate = (Button) findViewById(R.id.ChangeNote);
+
+        editName = (EditText) findViewById(R.id.EditNombre);
+        editPass = (EditText) findViewById(R.id.EditPass);
+        UpdateName = (Button) findViewById(R.id.UpdateNAME);
+        UpdatePass = (Button) findViewById(R.id.UpdatePASS);
 
         names = new ArrayList<String>();
         names.add("Calculo 1: " + notas.calculo1);
@@ -104,10 +107,69 @@ public class historial extends base {
             }
         });
 
+        UpdateName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actualizarNombre();
+            }
+        });
+
+        UpdatePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actualizarPass();
+            }
+        });
+
 
     }
 
 
+    public void actualizarNombre(){
+        String name = editName.getText().toString();
+        if ((name != null)){
+            for (int counter = 0; counter < users.size(); counter++) {
+                if((users.get(counter).cedula.equals(current_user.cedula)) && (users.get(counter).pass.equals(current_user.pass)) ){
+                    users.get(counter).setNombre(name);
+                    saveCurrentUser(users.get(counter));
+                    saveData();
+                    LoadAllData();
+                    print_LOGs_User();
+                    Log.e("TEST LIST", " PASS:" + users.get(counter).nombre);
+                    Log.e("TEST CURRENT", " NAME:" + current_user.nombre);
+                    Toast.makeText(historial.this, "Nombre Actualizado", Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }else{
+            Toast.makeText(historial.this, "Nombre no puede estar vacio", Toast.LENGTH_LONG).show();
+        }
+    }
 
 
+    public void actualizarPass(){
+        String pass = editPass.getText().toString();
+        if ((pass != null)){
+            for (int counter = 0; counter < users.size(); counter++) {
+                if((users.get(counter).cedula.equals(current_user.cedula)) && (users.get(counter).pass.equals(current_user.pass)) ){
+                    users.get(counter).setPass(pass);
+                    saveCurrentUser(users.get(counter));
+                    saveData();
+                    LoadAllData();
+                    print_LOGs_User();
+                    Log.e("TEST LIST", " PASS:" + users.get(counter).pass);
+                    Log.e("TEST CURRENT", " PASS:" + current_user.pass);
+                    Toast.makeText(historial.this, "Pass Actualizado", Toast.LENGTH_LONG).show();
+                }
+            }
+        }else{
+            Toast.makeText(historial.this, "Password no puede estar vacio", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void print_LOGs_User(){
+        for (int counter = 0; counter < users.size(); counter++) {
+            Log.e("TEST LIST", " Name:" + users.get(counter).nombre + " Pass:" + users.get(counter).pass);
+        }
+    }
 }

@@ -22,10 +22,10 @@ public class login extends base {
         Load_or_inicializate_notas();
         LoadAllData();
 
-        identity= findViewById(R.id.Calificacion);
-        pass= findViewById(R.id.txtContrasena);
+        identity= findViewById(R.id.EditNombre);
+        pass= findViewById(R.id.EditPass);
 
-        Btn = (Button)findViewById(R.id.btn);
+        Btn = (Button)findViewById(R.id.UpdateNAME);
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

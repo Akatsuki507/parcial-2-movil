@@ -83,7 +83,7 @@
 
     <EditText
 
-        android:id="@+id/Calificacion"
+        android:id="@+id/EditNombre"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:hint="Cédula"
@@ -101,7 +101,7 @@
         />
 
     <EditText
-        android:id="@+id/txtContrasena"
+        android:id="@+id/EditPass"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:hint="Contraseña"
@@ -119,7 +119,7 @@
 
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/UpdateNAME"
 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
