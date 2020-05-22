@@ -1,6 +1,6 @@
 package com.example.appparcial2alvarado_deleon;
 
-public class Historial {
+public class Nota {
     public char calculo1;
     public char calculo2;
     public char programacion1;
@@ -14,7 +14,7 @@ public class Historial {
 
     public boolean first;
 
-    public Historial() {
+    public Nota() {
         this.calculo1 = '-';
         this.calculo2 = '-';
         this.programacion1 = '-';
