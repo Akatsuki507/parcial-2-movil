@@ -15,6 +15,18 @@ public class historial extends base {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
+        Load_or_inicializate_notas();
+        LoadAllData();
+
+
+        // TEST
+        notas.updateNotas("calculo1",'A');
+        updateNotas();
+        LoadAllData();
+
+        notas.updateNotas("ecuaciones_diferenciales",'B');
+        updateNotas();
+        LoadAllData();
     }
 
 

@@ -27,10 +27,11 @@ public class base extends AppCompatActivity {
     public void LoadAllData(){
         loadData();
         loadCurrentUser();
+        reloadNotas();
     }
 
     public void Load_or_inicializate_notas(){
-        if(loadData()){
+        if(!reloadNotas()){
             inicializar_notas();
         }
     }
@@ -49,8 +50,21 @@ public class base extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Error en la data ingresada"+e.getMessage().toString(),Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
 
-
+    public boolean updateNotas(){
+        try {
+            Gson gson = new Gson();
+            String json = gson.toJson(notas);
+            OutputStreamWriter fn = new OutputStreamWriter(openFileOutput("notas.txt", Context.MODE_PRIVATE));
+            fn.write(json);
+            fn.close();
+            Toast.makeText(getApplicationContext(),"Notas actualizadas", Toast.LENGTH_SHORT).show();
+            return true;
+        } catch (Exception e){
+            Toast.makeText(getApplicationContext(),"Error en la data ingresada"+e.getMessage().toString(),Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private boolean reloadNotas(){
@@ -60,11 +74,22 @@ public class base extends AppCompatActivity {
             String json = bf.readLine();
             Type type = new TypeToken<Nota>(){}.getType();
             notas = gson.fromJson(json, type);
+
+            if(notas == null){
+                Toast.makeText(getApplicationContext(),"Recargo bien la nota pero es vacio "+notas, Toast.LENGTH_SHORT).show();
+                return false;
+            }
             Toast.makeText(getApplicationContext(),"Recargo bien la nota en calculo es: "+notas.calculo1, Toast.LENGTH_SHORT).show();
+            Log.e("NOTAS", "==============================================NOTAS====================================================");
+            Log.e("NOTA", "| notas: " + notas  + " | CALCULO1: " + notas.calculo1 + "| BASE DE DATOS: " + notas.bases_de_datos1 + "| ECUACIONES DIFERENCIALES: " +  notas.ecuaciones_diferenciales);
+            Log.e("NOTAS", "==============================================NOTAS====================================================");
             return true;
         }catch (Exception e) {
             Toast.makeText(getApplicationContext(),"Ya fue, GG izi pici", Toast.LENGTH_SHORT).show();
-            return true;
+            Log.e("NOTAS", "==============================================NOTAS====================================================");
+            Log.e("NOTAS", "==============================================" + e.getMessage().toString() +"====================================================");
+            Log.e("NOTAS", "==============================================NOTAS====================================================");
+            return false;
         }
 
     }
@@ -72,7 +97,7 @@ public class base extends AppCompatActivity {
 
     public void Load_or_inicializate_users(){
         // Quema los usuarios si no existen
-        if(loadData()){
+        if(!loadData()){
             // Quemar datos de usuarios
             User estudiante = new User("8-888-888","Shantal De Leon", "123", "estudiante");
             User profesor = new User("8-941-856", "Alfonso Alvarado", "123", "profesor");

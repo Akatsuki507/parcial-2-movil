@@ -28,6 +28,10 @@ public class Nota {
         this.first = false;
     }
 
+    public void setFirst(boolean first) {
+        this.first = first;
+    }
+
     public boolean updateNotas(String materia, char calificacion){
         boolean resultado = false;
         if (materia.equals("calculo1")){
