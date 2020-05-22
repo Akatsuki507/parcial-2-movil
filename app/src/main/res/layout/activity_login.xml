@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".login">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="20dip">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Universidad Tecnologia de Panama"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="#0C0E09"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtSistemas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Facultad de Sistemas"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/txtMatricula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Nuevo Sistema de Matricula"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+    <EditText
+        android:id="@+id/txtCedula"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:hint="Usuario"
+        />
+
+    <EditText
+        android:id="@+id/txtContrasena"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:layout_marginTop="15dip"
+        android:layout_marginBottom="30dip" />
+
+
+    <Button
+        android:id="@+id/btnIngresar"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Ingresar"
+        android:onClick="Ingresar"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip" />
+
+
+
+</LinearLayout>
