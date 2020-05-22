@@ -12,13 +12,16 @@ import android.widget.RadioGroup;
 public class MainActivity extends base {
     RadioGroup Perfil;
     private Button btnlink;
-
+    Intent i;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Load_or_inicializate_users();
+        Load_or_inicializate_notas();
+        LoadAllData();
 
         if(current_user.rol.equals("estudiante")) {
             findViewById(R.id.rbtEstudiante).setVisibility(View.VISIBLE);
@@ -40,28 +43,33 @@ public class MainActivity extends base {
                         Perfil=findViewById(R.id.Perfiles);
                         if(Perfil.getCheckedRadioButtonId() == R.id.rbtEstudiante){
 
-                            Intent i =new Intent(getApplicationContext(),historial.class);
+                            i =new Intent(getApplicationContext(),historial.class);
                         }
                         else if(Perfil.getCheckedRadioButtonId() == R.id.rbtProfesor){
 
-                            Intent i =new Intent(getApplicationContext(),historial.class);
+                            i =new Intent(getApplicationContext(),historial.class);
                         }
                         else if(Perfil.getCheckedRadioButtonId() == R.id.rbtUTP){
                             Uri uri = Uri.parse( "http://utp.ac.pa");
-                            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                            startActivity(intent);
+                            i = new Intent(Intent.ACTION_VIEW,uri);
+
                         }
                         else if(Perfil.getCheckedRadioButtonId() == R.id.rbtVirtual){
                             Uri uri = Uri.parse("https://ecampus.utp.ac.pa/moodle/");
-                            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                            startActivity(intent);
+                            i = new Intent(Intent.ACTION_VIEW,uri);
+                            startActivity(i);
                         }
+
+                        startActivity(i);
 
 
                 }
     });
 
     }
+
+
+
 
 
 }

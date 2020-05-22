@@ -44,7 +44,7 @@ public class base extends AppCompatActivity {
             OutputStreamWriter fn = new OutputStreamWriter(openFileOutput("notas.txt", Context.MODE_PRIVATE));
             fn.write(json);
             fn.close();
-            Toast.makeText(getApplicationContext(),"Usted se ha registrado de un modo exitoso UwU", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Usted ha inicializado las notas de un modo exitoso UwU", Toast.LENGTH_SHORT).show();
             return true;
         } catch (Exception e){
             Toast.makeText(getApplicationContext(),"Error en la data ingresada"+e.getMessage().toString(),Toast.LENGTH_SHORT).show();
@@ -76,19 +76,11 @@ public class base extends AppCompatActivity {
             notas = gson.fromJson(json, type);
 
             if(notas == null){
-                Toast.makeText(getApplicationContext(),"Recargo bien la nota pero es vacio "+notas, Toast.LENGTH_SHORT).show();
                 return false;
             }
-            Toast.makeText(getApplicationContext(),"Recargo bien la nota en calculo es: "+notas.calculo1, Toast.LENGTH_SHORT).show();
-            Log.e("NOTAS", "==============================================NOTAS====================================================");
-            Log.e("NOTA", "| notas: " + notas  + " | CALCULO1: " + notas.calculo1 + "| BASE DE DATOS: " + notas.bases_de_datos1 + "| ECUACIONES DIFERENCIALES: " +  notas.ecuaciones_diferenciales);
-            Log.e("NOTAS", "==============================================NOTAS====================================================");
             return true;
         }catch (Exception e) {
             Toast.makeText(getApplicationContext(),"Ya fue, GG izi pici", Toast.LENGTH_SHORT).show();
-            Log.e("NOTAS", "==============================================NOTAS====================================================");
-            Log.e("NOTAS", "==============================================" + e.getMessage().toString() +"====================================================");
-            Log.e("NOTAS", "==============================================NOTAS====================================================");
             return false;
         }
 
@@ -108,7 +100,7 @@ public class base extends AppCompatActivity {
     }
 
     // Guardar usuario actual desdpues del login
-    private void saveCurrentUser(User usuario){
+    public void saveCurrentUser(User usuario){
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharepreferences.edit();
         Gson gson = new Gson();
@@ -119,7 +111,7 @@ public class base extends AppCompatActivity {
     }
 
     // Guardar Usuarios
-    private void saveData() {
+    public void saveData() {
         SharedPreferences sharepreferences = getSharedPreferences("shared preference", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharepreferences.edit();
         Gson gson = new Gson();
@@ -141,9 +133,6 @@ public class base extends AppCompatActivity {
         if(current_user == null){
             return false;
         }
-        Log.e("USUARIOS", "==============================================USUARIO ACTUAL====================================================");
-        Log.e("USUARIO", "| USUARIO: " + current_user  + " | NOMBRE: " + current_user.nombre + "| PASS: " + current_user.pass + "| ROL: " +  current_user.rol);
-        Log.e("USUARIOS", "==============================================USUARIO ACTUAL====================================================");
         return true;
     }
 
@@ -157,17 +146,8 @@ public class base extends AppCompatActivity {
 
         if(users == null){
             users = new ArrayList<>();
-            Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
-            Log.e("USUARIOS", "=========================================NO HAY USUARIOS REGISTRADOS===============================================");
-            Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
             return false;
         }
-        Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
-        Log.e("USUARIOS", "CANTIDAD DE USUARIOS: " + String.valueOf(users.size()));
-        for (int counter = 0; counter < users.size(); counter++) {
-            Log.e("USUARIOS", "| NOMBRE: " + users.get(counter).nombre + "| ROL: " + users.get(counter).rol);
-        }
-        Log.e("USUARIOS", "==============================================LISTA DE USUARIOS====================================================");
         return true;
     }
 }
