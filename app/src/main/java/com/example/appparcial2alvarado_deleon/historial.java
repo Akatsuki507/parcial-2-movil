@@ -68,19 +68,26 @@ public class historial extends base {
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char char_calificacion = Calificacion.getText().charAt(0);
-                String materia = selected.getText().toString();
-                boolean ejecutar_update = notas.updateNotas(materia , char_calificacion);
 
-                Log.e("CALIFICACION", " ============= "+ char_calificacion +" ================== ");
-                Log.e("MATERIA", " ============= "+ materia +" ================== ");
-                Log.e("BOOLEAN", " ============= "+ ejecutar_update +" ================== ");
-                updateNotas();
-                Toast.makeText(historial.this, "Nota actualizada", Toast.LENGTH_LONG).show();
+                if( !(Calificacion.getText().charAt(0) == 0) && !(selected.getText().toString() != null)){
+                    char char_calificacion = Calificacion.getText().charAt(0);
 
-                LoadAllData();
-                finish();
-                startActivity(getIntent());
+                    String materia = selected.getText().toString();
+                    boolean ejecutar_update = notas.updateNotas(materia , char_calificacion);
+
+                    Log.e("CALIFICACION", " ============= "+ char_calificacion +" ================== ");
+                    Log.e("MATERIA", " ============= "+ materia +" ================== ");
+                    Log.e("BOOLEAN", " ============= "+ ejecutar_update +" ================== ");
+                    updateNotas();
+                    Toast.makeText(historial.this, "Nota actualizada", Toast.LENGTH_LONG).show();
+
+                    LoadAllData();
+                    finish();
+                    startActivity(getIntent());
+                }else{
+                    Toast.makeText(historial.this, "Error: Selecciona una materia e introduce la nota por favor", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
