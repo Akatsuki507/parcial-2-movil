@@ -42,7 +42,7 @@
         android:textStyle="bold"
         />
     <EditText
-        android:id="@+id/txtCedula"
+        android:id="@+id/Calificacion"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:hint="Usuario"

@@ -34,34 +34,34 @@ public class Nota {
 
     public boolean updateNotas(String materia, char calificacion){
         boolean resultado = false;
-        if (materia.equals("calculo1")){
+        if (materia.equals("Calculo 1")){
             this.calculo1 = calificacion;
             return true;
-        }else if(materia.equals("calculo2")){
+        }else if(materia.equals("Calculo 2")){
             this.calculo2 = calificacion;
             return true;
-        }else if(materia.equals("programacion1")){
+        }else if(materia.equals("Programacion 1")){
             this.programacion1 = calificacion;
             return true;
-        }else if(materia.equals("programacion2")){
+        }else if(materia.equals("Programacion 2")){
             this.programacion2 = calificacion;
             return true;
-        }else if(materia.equals("bases_de_datos1")){
+        }else if(materia.equals("Bases de datos 1")){
             this.bases_de_datos1 = calificacion;
             return true;
-        }else if(materia.equals("bases_de_datos2")){
+        }else if(materia.equals("Bases de datos 2")){
             this.bases_de_datos2 = calificacion;
             return true;
-        }else if(materia.equals("ecuaciones_diferenciales")){
+        }else if(materia.equals("Ecuaciones diferenciales")){
             this.ecuaciones_diferenciales = calificacion;
             return true;
-        }else if(materia.equals("matematicas_superiores")){
+        }else if(materia.equals("Matematicas superiores")){
             this.matematicas_superiores = calificacion;
             return true;
-        }else if(materia.equals("ingenieria_de_requisitos")){
+        }else if(materia.equals("Ingenieria de requisitos")){
             this.ingenieria_de_requisitos = calificacion;
             return true;
-        }else if(materia.equals("ingenieria_web")){
+        }else if(materia.equals("Ingenieria web")){
             this.ingenieria_web = calificacion;
             return true;
         }else{
