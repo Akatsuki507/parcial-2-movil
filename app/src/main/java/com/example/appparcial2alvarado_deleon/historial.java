@@ -4,12 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 public class historial extends base {
 
+    private ListView NotasList;
+    private ArrayList<String> names;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +26,30 @@ public class historial extends base {
         Load_or_inicializate_notas();
         LoadAllData();
 
+
+        NotasList = (ListView) findViewById(R.id.NotasList);
+
+        names = new ArrayList<String>();
+        names.add("Calculo 1 : " + notas.calculo1);
+        names.add("Calculo 2 : " + notas.calculo2);
+        names.add("Programacion 1 : " + notas.programacion1);
+        names.add("Programacion 2 : " + notas.programacion2);
+        names.add("Bases de datos 1 : " + notas.bases_de_datos1);
+        names.add("Bases de datos 2 : " + notas.bases_de_datos2);
+        names.add("Ecuaciones diferenciales : " + notas.ecuaciones_diferenciales);
+        names.add("Matematicas superiores : " + notas.matematicas_superiores);
+        names.add("Ingenieria de requisitos : " + notas.ingenieria_de_requisitos);
+        names.add("Ingenieria web : " + notas.ingenieria_web);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+        NotasList.setAdapter(adapter);
+
+        NotasList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Toast.makeText(historial.this, "Has pulsado: "+ names.get(position), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 
