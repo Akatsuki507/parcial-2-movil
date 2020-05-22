@@ -82,9 +82,10 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/txtCedula"
-        android:layout_width="fill_parent"
+
+        android:id="@+id/Calificacion"
         android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
         android:hint="Cédula"
         android:layout_marginBottom="15dp"
         android:layout_marginRight="20dp"

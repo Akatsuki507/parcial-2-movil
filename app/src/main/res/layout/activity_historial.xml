@@ -46,4 +46,33 @@
         android:layout_height="match_parent"
         android:id="@+id/lstUsuarios"/>
 
+    <ListView
+        android:id="@+id/NotasList"
+        android:layout_width="wrap_content"
+        android:layout_height="275dp"
+        android:background="#AE9393" />
+
+    <TextView
+        android:id="@+id/Seleccionado"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:autoText="true"
+        android:background="#7F8297"
+        android:paddingTop="10px"
+        android:paddingBottom="10px" />
+
+    <EditText
+        android:id="@+id/Calificacion"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:hint="Nota" />
+
+    <Button
+        android:id="@+id/ChangeNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar nota" />
+
 </LinearLayout>

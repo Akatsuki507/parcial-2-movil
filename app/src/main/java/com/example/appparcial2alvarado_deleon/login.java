@@ -1,11 +1,7 @@
 package com.example.appparcial2alvarado_deleon;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.util.Log;
 
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +22,7 @@ public class login extends base {
         Load_or_inicializate_notas();
         LoadAllData();
 
-        identity= findViewById(R.id.txtCedula);
+        identity= findViewById(R.id.Calificacion);
         pass= findViewById(R.id.txtContrasena);
 
         Btn = (Button)findViewById(R.id.btn);
