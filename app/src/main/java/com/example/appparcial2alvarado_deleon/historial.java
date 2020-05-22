@@ -57,16 +57,16 @@ public class historial extends base {
         UpdatePass = (Button) findViewById(R.id.UpdatePASS);
 
         names = new ArrayList<String>();
-        names.add("Calculo 1: " + notas.calculo1);
-        names.add("Calculo 2: " + notas.calculo2);
-        names.add("Programacion 1: " + notas.programacion1);
-        names.add("Programacion 2: " + notas.programacion2);
-        names.add("Bases de datos 1: " + notas.bases_de_datos1);
-        names.add("Bases de datos 2: " + notas.bases_de_datos2);
-        names.add("Ecuaciones diferenciales: " + notas.ecuaciones_diferenciales);
-        names.add("Matematicas superiores: " + notas.matematicas_superiores);
-        names.add("Ingenieria de requisitos: " + notas.ingenieria_de_requisitos);
-        names.add("Ingenieria web: " + notas.ingenieria_web);
+        names.add("Calculo 1: " + " " + notas.calculo1);
+        names.add("Calculo 2: " + " " + notas.calculo2);
+        names.add("Programacion 1: " + " " +  notas.programacion1);
+        names.add("Programacion 2: " + " " + notas.programacion2);
+        names.add("Bases de datos 1: " + " " +  notas.bases_de_datos1);
+        names.add("Bases de datos 2: " + " " + notas.bases_de_datos2);
+        names.add("Ecuaciones diferenciales: " + " " + notas.ecuaciones_diferenciales);
+        names.add("Matematicas superiores: " + " " + notas.matematicas_superiores);
+        names.add("Ingenieria de requisitos: " + " " +  notas.ingenieria_de_requisitos);
+        names.add("Ingenieria web: " + " " + notas.ingenieria_web);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
         NotasList.setAdapter(adapter);
