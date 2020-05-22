@@ -14,6 +14,7 @@ public class MainActivity extends base {
     private Button btnlink;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,22 +24,49 @@ public class MainActivity extends base {
                     @Override
                     public void onClick(View v) {
                         Perfil=findViewById(R.id.Perfiles);
-                        if(Perfil.getCheckedRadioButtonId() == R.id.rbtEstudiante){
-                            Intent i =new Intent(getApplicationContext(),historial.class);
+                        if(current_user.rol.equals("estudiante")) {
+                            findViewById(R.id.rbtEstudiante).setVisibility(View.VISIBLE);
+                            if(Perfil.getCheckedRadioButtonId() == R.id.rbtEstudiante){
+
+                                Intent i =new Intent(getApplicationContext(),historial.class);
+                            }
+                            else if(Perfil.getCheckedRadioButtonId() == R.id.rbtProfesor){
+
+                                Intent i =new Intent(getApplicationContext(),historial.class);
+                            }
+                            else if(Perfil.getCheckedRadioButtonId() == R.id.rbtUTP){
+                                Uri uri = Uri.parse( "http://utp.ac.pa");
+                                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                                startActivity(intent);
+                            }
+                            else if(Perfil.getCheckedRadioButtonId() == R.id.rbtVirtual){
+                                Uri uri = Uri.parse("https://ecampus.utp.ac.pa/moodle/");
+                                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                                startActivity(intent);
+                            }
+|
                         }
-                        else if(Perfil.getCheckedRadioButtonId() == R.id.rbtProfesor){
-                            Intent i =new Intent(getApplicationContext(),historial.class);
+                        else{
+                            if(Perfil.getCheckedRadioButtonId() == R.id.rbtEstudiante){
+
+                                Intent i =new Intent(getApplicationContext(),historial.class);
+                            }
+                            else if(Perfil.getCheckedRadioButtonId() == R.id.rbtProfesor){
+
+                                Intent i =new Intent(getApplicationContext(),historial.class);
+                            }
+                            else if(Perfil.getCheckedRadioButtonId() == R.id.rbtUTP){
+                                Uri uri = Uri.parse( "http://utp.ac.pa");
+                                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                                startActivity(intent);
+                            }
+                            else if(Perfil.getCheckedRadioButtonId() == R.id.rbtVirtual){
+                                Uri uri = Uri.parse("https://ecampus.utp.ac.pa/moodle/");
+                                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                                startActivity(intent);
+                            }
                         }
-                        else if(Perfil.getCheckedRadioButtonId() == R.id.rbtUTP){
-                            Uri uri = Uri.parse( "http://utp.ac.pa");
-                            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                            startActivity(intent);
-                        }
-                        else if(Perfil.getCheckedRadioButtonId() == R.id.rbtVirtual){
-                            Uri uri = Uri.parse("https://ecampus.utp.ac.pa/moodle/");
-                            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                            startActivity(intent);
-                        }
+
                 }
     });
 
