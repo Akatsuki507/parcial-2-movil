@@ -14,4 +14,12 @@ public class User {
         this.pass = pass;
         this.rol = rol;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
 }

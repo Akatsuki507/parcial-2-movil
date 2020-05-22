@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -38,7 +40,7 @@ public class base extends AppCompatActivity {
             notas = new Nota();
             Gson gson = new Gson();
             String json = gson.toJson(notas);
-            OutputStreamWriter fn = new OutputStreamWriter(openFileOutput("user.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter fn = new OutputStreamWriter(openFileOutput("notas.txt", Context.MODE_PRIVATE));
             fn.write(json);
             fn.close();
             Toast.makeText(getApplicationContext(),"Usted se ha registrado de un modo exitoso UwU", Toast.LENGTH_SHORT).show();
@@ -51,6 +53,21 @@ public class base extends AppCompatActivity {
 
     }
 
+    private boolean reloadNotas(){
+        try {
+            BufferedReader bf = new BufferedReader(new InputStreamReader(openFileInput("notas.txt")));
+            Gson gson = new Gson();
+            String json = bf.readLine();
+            Type type = new TypeToken<Nota>(){}.getType();
+            notas = gson.fromJson(json, type);
+            Toast.makeText(getApplicationContext(),"Recargo bien la nota en calculo es: "+notas.calculo1, Toast.LENGTH_SHORT).show();
+            return true;
+        }catch (Exception e) {
+            Toast.makeText(getApplicationContext(),"Ya fue, GG izi pici", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+    }
 
 
     public void Load_or_inicializate_users(){

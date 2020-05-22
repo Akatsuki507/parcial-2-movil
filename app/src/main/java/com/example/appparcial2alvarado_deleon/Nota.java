@@ -48,19 +48,20 @@ public class Nota {
         }else if(materia.equals("bases_de_datos2")){
             this.bases_de_datos2 = calificacion;
             return true;
-        }else if(materia.equals("")){
-            this.calculo1 = calificacion;
+        }else if(materia.equals("ecuaciones_diferenciales")){
+            this.ecuaciones_diferenciales = calificacion;
             return true;
-        }else if(materia.equals("")){
-            this.calculo1 = calificacion;
+        }else if(materia.equals("matematicas_superiores")){
+            this.matematicas_superiores = calificacion;
             return true;
-        }else if(materia.equals("")){
-            this.calculo1 = calificacion;
+        }else if(materia.equals("ingenieria_de_requisitos")){
+            this.ingenieria_de_requisitos = calificacion;
             return true;
-        }else if(materia.equals("")){
-            this.calculo1 = calificacion;
+        }else if(materia.equals("ingenieria_web")){
+            this.ingenieria_web = calificacion;
             return true;
+        }else{
+            return resultado;
         }
-        return resultado;
     }
 }
