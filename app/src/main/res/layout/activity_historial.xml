@@ -41,16 +41,11 @@
         android:textAlignment="center"
         android:layout_gravity="center"
         />
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lstUsuarios"/>
 
     <ListView
         android:id="@+id/NotasList"
-        android:layout_width="wrap_content"
-        android:layout_height="275dp"
-        android:background="#AE9393" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/Seleccionado"
